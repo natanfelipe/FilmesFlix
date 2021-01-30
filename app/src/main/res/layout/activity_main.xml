@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaFilmes"
+        android:id="@+id/moviesList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/filme_item_layout"
+        tools:listitem="@layout/movie_item_layout"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
