@@ -2,7 +2,7 @@ package com.br.natanfc.filmesflix.repository
 
 import android.util.Log
 import com.br.natanfc.filmesflix.api.MovieRestApiTask
-import com.br.natanfc.filmesflix.model.Movie
+import com.br.natanfc.filmesflix.domain.Movie
 
 class MovieRepository(private val movieRestApiTask: MovieRestApiTask) {
 
