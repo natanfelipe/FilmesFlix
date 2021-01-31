@@ -2,6 +2,7 @@ package com.br.natanfc.filmesflix.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.br.natanfc.filmesflix.R
 import com.br.natanfc.filmesflix.model.Movie
@@ -18,12 +19,14 @@ class MainActivity : AppCompatActivity() {
 
         movieListViewModel = ViewModelProvider.NewInstanceFactory().create(MovieListViewModel::class.java)
         movieListViewModel.init()
+        progressBarVisibility(true)
         initObserver()
     }
 
     private fun initObserver() {
         movieListViewModel.moviesList.observe(this, { list ->
             populateList(list)
+            progressBarVisibility(false)
         })
     }
 
@@ -31,6 +34,14 @@ class MainActivity : AppCompatActivity() {
         moviesList.apply {
             hasFixedSize()
             adapter = MoviesAdapter(list)
+        }
+    }
+
+    private fun progressBarVisibility(isLoading: Boolean) {
+        if (isLoading) {
+            progressBar.visibility = View.VISIBLE
+        } else {
+            progressBar.visibility = View.GONE
         }
     }
 
