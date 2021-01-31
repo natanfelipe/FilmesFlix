@@ -19,17 +19,16 @@ class MainActivity : AppCompatActivity() {
 
         movieListViewModel = ViewModelProvider.NewInstanceFactory().create(MovieListViewModel::class.java)
         movieListViewModel.init()
-        progressBarVisibility(true)
         initObserver()
+        loadingVisibility(true)
     }
 
     private fun initObserver() {
         movieListViewModel.moviesList.observe(this, { list ->
-            if (list.isNotEmpty()){
+            if (list.isNotEmpty()) {
                 populateList(list)
-                progressBarVisibility(false)
+                loadingVisibility(false)
             }
-
         })
     }
 
@@ -40,12 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun progressBarVisibility(isLoading: Boolean) {
-        if (isLoading) {
-            progressBar.visibility = View.VISIBLE
-        } else {
-            progressBar.visibility = View.GONE
-        }
+    private fun loadingVisibility(isLoading: Boolean) {
+        progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
 }
