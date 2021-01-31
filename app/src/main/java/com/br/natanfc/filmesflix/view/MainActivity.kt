@@ -25,8 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initObserver() {
         movieListViewModel.moviesList.observe(this, { list ->
-            populateList(list)
-            progressBarVisibility(false)
+            if (list.isNotEmpty()){
+                populateList(list)
+                progressBarVisibility(false)
+            }
+
         })
     }
 
