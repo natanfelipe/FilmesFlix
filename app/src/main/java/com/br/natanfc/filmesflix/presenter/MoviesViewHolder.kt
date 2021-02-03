@@ -1,4 +1,4 @@
-package com.br.natanfc.filmesflix.view
+package com.br.natanfc.filmesflix.presenter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

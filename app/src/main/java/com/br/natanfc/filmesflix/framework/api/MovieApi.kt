@@ -1,4 +1,4 @@
-package com.br.natanfc.filmesflix.api
+package com.br.natanfc.filmesflix.framework.api
 
 import com.br.natanfc.filmesflix.domain.Movie
 import retrofit2.Call
